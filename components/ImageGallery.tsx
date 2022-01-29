@@ -7,6 +7,7 @@ import GalleryImage5 from 'images/5.jpg'
 import GalleryImage6 from 'images/6.jpg'
 import GalleryImage7 from 'images/7.jpg'
 import GalleryImage8 from 'images/8.jpg'
+import { useRef } from 'react'
 
 const galleryImages = [
   { id: 1, image: GalleryImage1, placeholderColor: '#AC8B6A' },
@@ -20,12 +21,13 @@ const galleryImages = [
 ]
 
 export default function ImageGallery() {
+  const galleryContainer = useRef<HTMLUListElement>(null)
   return (
-    <ul className="flex w-full p-4 gap-4 overflow-x-scroll">
+    <ul ref={galleryContainer} className="flex w-full p-4 gap-4 overflow-x-scroll">
       {galleryImages.map(({ id, image, placeholderColor }) => (
         <li key={id}>
           <div className="relative object-cover h-96 rounded-md overflow-hidden aspect-square" style={{ backgroundColor: placeholderColor }}>
-            <Image src={image} alt="" layout="fill" objectFit="cover" objectPosition="center" lazyBoundary="9000px" />
+            <Image src={image} alt="" layout="fill" objectFit="cover" objectPosition="center" lazyRoot={galleryContainer} lazyBoundary="10px" />
           </div>
         </li>
       ))}
