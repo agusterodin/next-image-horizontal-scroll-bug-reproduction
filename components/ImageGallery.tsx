@@ -22,6 +22,7 @@ const galleryImages = [
 
 export default function ImageGallery() {
   const galleryContainer = useRef<HTMLUListElement>(null)
+
   return (
     <ul ref={galleryContainer} className="flex w-full p-4 gap-4 overflow-x-scroll">
       {galleryImages.map(({ id, image, placeholderColor }) => (
