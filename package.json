@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2",
-    "next": "^12",
+    "next": "^12.0.10-canary.1",
     "react": "^17",
     "react-dom": "^17"
   },
